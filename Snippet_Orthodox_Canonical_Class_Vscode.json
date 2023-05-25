@@ -1,0 +1,54 @@
+{
+	"Orthodox Canonical Class": {
+		"prefix": "classhpp, classh, hppclass, hclass",
+		"body": [
+		"#ifndef ${TM_FILENAME/(.*)\\..+$/${1:/upcase}/}_HPP",
+		"# define ${TM_FILENAME/(.*)\\..+$/${1:/upcase}/}_HPP",
+		"",
+		"# include <iostream>",
+		"",
+		"class ${1:${TM_FILENAME_BASE}}",
+		"{",
+		"",
+		"private:",
+		"    ${2:/*data*/}",
+		"",
+		"public:",
+		"    ${1:${TM_FILENAME_BASE}}(${3:/* args */});",
+		"    ~${1:${TM_FILENAME_BASE}}();",
+		"",
+		"    ${1:${TM_FILENAME_BASE}}(${1:${TM_FILENAME_BASE}} const & src);",
+		"    ${1:${TM_FILENAME_BASE}} & operator=(${1:${TM_FILENAME_BASE}} const & rhs);",
+		"};",
+		"",
+		"std::ostream & operator<<(std::ostream & os, ${1:${TM_FILENAME_BASE}} const & instance);",
+		"",
+		"#endif"
+		],
+		"description": "Orthodox Canonical Class"
+	},
+	"Canonical Class Functions": {
+		"prefix": "classcpp, classc, cppclass, cclass",
+		"body": [
+		"#include \"${1:${TM_FILENAME_BASE}}.hpp\"",
+		"",
+		"${1:${TM_FILENAME_BASE}}::${1:${TM_FILENAME_BASE}}(${2:/* args */})",
+		"{${3}",
+		"}",
+		"",
+		"${1:${TM_FILENAME_BASE}}::~${1:${TM_FILENAME_BASE}}()",
+		"{${4}",
+		"}",
+		"",
+		"${1:${TM_FILENAME_BASE}}::${1:${TM_FILENAME_BASE}}(${1:${TM_FILENAME_BASE}} const & src)",
+		"{${5}",
+		"}",
+		"",
+		"${1:${TM_FILENAME_BASE}} & ${1:${TM_FILENAME_BASE}}::operator=(${1:${TM_FILENAME_BASE}} const & rhs)",
+		"{${6}",
+		"}"
+		],
+		"description": "Orthodox Canonical Class Functions"
+	}
+}
+
